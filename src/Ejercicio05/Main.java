@@ -25,6 +25,12 @@ package Ejercicio05;
 public class Main {
     public static void main(String[] args) {
         Cuenta cuenta1 = new Cuenta();
-        
+        cuenta1.crearCuenta();
+        cuenta1.ingresar(115.50);
+        cuenta1.retirar(25.75);
+        cuenta1.extraccionRapida();
+        System.out.println("El saldo de su cuenta es: "+cuenta1.consultarSaldo());
+        System.out.println("Los datos de la cuenta son los siguientes: ");
+        System.out.println(cuenta1.consultarDatos());
     }
 }

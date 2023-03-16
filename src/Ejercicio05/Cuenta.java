@@ -61,22 +61,22 @@ public class Cuenta {
         this.interes = interes;
     }
 /*  c) Metodo para crear un objeto Cuenta, pidiéndole los datos al usuario.*/    
-    public Cuenta crearCuenta(){
+    public void crearCuenta(){
         Scanner leer=new Scanner(System.in);
-        Cuenta A=new Cuenta();
         System.out.print("Número de cuenta: ");
-        A.numeroCuenta=leer.nextInt();
+        numeroCuenta=leer.nextInt();
         System.out.print("DNI del cliente: ");
-        A.dni=leer.nextLong();
+        dni=leer.nextLong();
         System.out.print("Saldo: ");
-        A.saldo=leer.nextDouble();
+        saldo=leer.nextDouble();
         System.out.print("Tasa de interés (en %): ");
-        A.interes=leer.nextInt();
-        return A;
+        interes=leer.nextInt();
+        
     }
  // d) Método ingresar(double ingreso): el método recibe una cantidad de dinero a ingresar y se la sumara a saldo actual.   
     public void ingresar(double ingreso){
         this.saldo+=ingreso;
+        System.out.println("Se he realizado un depósito de "+ingreso+" a la cuenta de forma exitosa. Su nuevo saldo es "+saldo+"\n");
     }
 /*  e) Método retirar(double retiro): el método recibe una cantidad de dinero a retirar y se
 la restará al saldo actual. Si la cuenta no tiene la cantidad de dinero a retirar, se
@@ -84,15 +84,19 @@ pondrá el saldo actual en 0.*/
     public void retirar(double retiro){
         if (saldo>=retiro){
             saldo-=retiro;
+            System.out.println("Se he realizado un retiro de "+retiro+" de la cuenta de forma exitosa. Su nuevo saldo es "+saldo+"\n");
         } else{
             saldo=0;
+            System.out.println("El saldo de la cuenta es 0.00");
         }
     }
     
 /*  f) Método extraccionRapida(): le permitirá sacar solo un 20% de su saldo. Validar que el
 usuario no saque más del 20%.*/    
     public void extraccionRapida(){
-        saldo=saldo*0.8;
+        double valor=saldo*0.2;
+        saldo-=valor;
+        System.out.println("Se realizó una extracción rápida de "+valor+" de forma exitosa. Su nuevo saldo es "+saldo+"\n");
     }
     
 /*  g) Método consultarSaldo(): permitirá consultar el saldo disponible en la cuenta.*/    
