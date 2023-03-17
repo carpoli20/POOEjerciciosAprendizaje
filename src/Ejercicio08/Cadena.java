@@ -74,5 +74,13 @@ contabilizar cuántas veces se repite el carácter en la frase, por ejemplo:
     
   /*e) Método compararLongitud(String frase), deberá comparar la longitud de la frase que
 compone la clase con otra nueva frase ingresada por el usuario. */
-  
+  public void compararLongitud(String frase){
+      if(this.frase.length()==frase.length()){
+          System.out.println("La frase ingresada tiene la misma longitud de la frase del objeto");
+      } else{
+          System.out.println("Las frases tienen distinto tamaño");
+      }
+  }
+  /*e) Método compararLongitud(String frase), deberá comparar la longitud de la frase que
+compone la clase con otra nueva frase ingresada por el usuario. */
 }
