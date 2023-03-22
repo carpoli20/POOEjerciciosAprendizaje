@@ -5,17 +5,30 @@
  */
 package Ejercicio13;
 
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+import java.util.Scanner;
+
 /**
  *
  * @author cjalil
  */
 public class Main {
     public static void main(String[] args) {
+        //System.out.println(DecimalFormatSymbols.getInstance(Locale.US).getDecimalSeparator());
         Curso curso1 = new Curso();
         curso1.crearCurso();
-        System.out.println("*************************");
+        esperar();
+        System.out.println("\n\n*************************");
         System.out.println("DATOS DEL CURSO");
         System.out.println("*************************");
-        System.out.println("Nombre del curso: "+curso1.getNombreCurso());
+        curso1.mostrarCurso();
+        
     }
+    
+    static void esperar(){
+        Scanner r=new Scanner(System.in);
+        System.out.println("\nPresione Enter para visualizar los datos del curso...");
+        r.nextLine();
+}
 }

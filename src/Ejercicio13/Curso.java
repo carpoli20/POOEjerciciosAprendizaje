@@ -8,6 +8,7 @@ nombres de cada alumno
  */
 package Ejercicio13;
 
+import java.text.DecimalFormatSymbols;
 import java.util.Scanner;
 
 /**
@@ -87,9 +88,9 @@ public class Curso {
 que asisten a las clases. Nosotros nos encargaremos de almacenar esta información
 en un arreglo e iterar con un bucle, solicitando en cada repetición que se ingrese el
 nombre de cada alumno. */
-public void cargarAlumnos(){
+public void cargarAlumnos(String[] alumnos){
     Scanner leer=new Scanner(System.in);
-    String[] alumnos=new String[5];
+    
     for (int i=0;i<alumnos.length;i++){
         System.out.print("Ingrese el nombre del alumno número "+(i+1)+": ");
         alumnos[i]=leer.nextLine();
@@ -112,14 +113,32 @@ public void crearCurso(){
     System.out.print("Ingrese el turno (mañana/tarde): ");
     turno = leer.next();
      System.out.print("Ingrese el precio x hora: ");
-    precioPorHora = leer.nextDouble();
-    cargarAlumnos();
+    String precio = leer.next();
+    precioPorHora=formatearDecimales(precio);
+    alumnos = new String[5];
+    cargarAlumnos(alumnos);
 }
 /*Método calcularGananciaSemanal(): este método se encarga de calcular la ganancia
 en una semana por curso. Para ello, se deben multiplicar la cantidad de horas por
 día, el precio por hora, la cantidad de alumnos y la cantidad de días a la semana que
 se repite el encuentro.*/
-public double calcularGanaciaSemanal(){
+public double calcularGananciaSemanal(){
     return cantidadHorasPorDia*precioPorHora*alumnos.length*cantidadDiasPorSemana;
+}
+public void mostrarCurso(){
+    System.out.println("Nombre del curso: "+nombreCurso);
+    System.out.println("Lista de Alumnos: ");
+    for (int i=0;i<alumnos.length;i++){
+        System.out.println("    "+(i+1)+".- "+alumnos[i]);
+    }
+    System.out.println("Horas por día: "+cantidadHorasPorDia);
+    System.out.println("Días por semana: "+cantidadDiasPorSemana);
+    System.out.println("Turno: "+turno);
+    System.out.println("Precio por hora: "+precioPorHora+" dólares");
+    System.out.println("Ganancia semanal: "+calcularGananciaSemanal()+" dólares");
+}
+public double formatearDecimales(String numero){
+        numero=numero.replace(',', '.');
+      return Double.parseDouble(numero);
 }
 }
