@@ -23,7 +23,6 @@ public class Main {
         System.out.println("DATOS DEL CURSO");
         System.out.println("*************************");
         curso1.mostrarCurso();
-        
     }
     
     static void esperar(){
